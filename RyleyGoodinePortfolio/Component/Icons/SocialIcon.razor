@@ -1,0 +1,18 @@
+﻿<a href="@Href"
+       target="_blank"
+       aria-label="@Label"
+       class="social-icon">
+
+    <svg viewBox="@ViewBox" aria-hidden="true">
+        <path d="@PathData" />
+    </svg>
+
+</a>
+
+@code {
+    [Parameter, EditorRequired] public string Href { get; set; } = default!;
+    [Parameter, EditorRequired] public string Label { get; set; } = default!;
+    [Parameter, EditorRequired] public string PathData { get; set; } = default!;
+
+    [Parameter] public string ViewBox { get; set; } = "0 0 24 24";
+}
