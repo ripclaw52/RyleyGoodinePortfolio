@@ -1,18 +1,32 @@
-﻿<a href="@Href"
+﻿@using RyleyGoodinePortfolio.Component.Icons
+
+<a href="@_url"
        target="_blank"
-       aria-label="@Label"
+       aria-label="@_label"
        class="social-icon">
 
-    <svg viewBox="@ViewBox" aria-hidden="true">
-        <path d="@PathData" />
+    <svg viewBox="@_viewBox" aria-hidden="true">
+        <path d="@_path" />
     </svg>
 
 </a>
 
 @code {
-    [Parameter, EditorRequired] public string Href { get; set; } = default!;
-    [Parameter, EditorRequired] public string Label { get; set; } = default!;
-    [Parameter, EditorRequired] public string PathData { get; set; } = default!;
+    [Parameter, EditorRequired]
+    public SocialPlatform Platform { get; set; }
 
-    [Parameter] public string ViewBox { get; set; } = "0 0 24 24";
+    private string _path = "";
+    private string _viewBox = "0 0 24 24";
+    private string _label = "";
+    private string _url = "";
+
+    protected override void OnParametersSet()
+    {
+        var icon = IconRegistry.Get(Platform);
+
+        _path = icon.Path;
+        _viewBox = icon.ViewBox;
+        _label = icon.Label;
+        _url = icon.Url;
+    }
 }
