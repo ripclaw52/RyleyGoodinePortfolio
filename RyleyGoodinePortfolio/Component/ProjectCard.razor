@@ -1,0 +1,36 @@
+﻿<article class="project-card">
+
+    @if (!string.IsNullOrEmpty(ThumbnailUrl))
+    {
+        <img src="@ThumbnailUrl"
+             alt="@Title"
+             class="project-image" />
+    }
+
+    <h2>@Title</h2>
+
+    <p>@Description</p>
+
+    @if (Technologies?.Any() == true)
+    {
+        <div class="tech-stack">
+            @foreach (var tech in Technologies)
+            {
+                <span>@tech</span>
+            }
+        </div>
+    }
+
+    <NavLink href="@($"/projects/{@Slug}")" class="details-link">
+        View Details ->
+    </NavLink>
+
+</article>
+
+@code {
+    [Parameter] public string Slug { get; set; } = "";
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string ThumbnailUrl { get; set; } = "";
+    [Parameter] public string Description { get; set; } = "";
+    [Parameter] public List<string> Technologies { get; set; } = new();
+}

@@ -1,2 +1,84 @@
-﻿<!-- Header component that will encompass every page -->
-<header></header>
+﻿<header class="app-header">
+    <div class="header-container">
+
+        <!-- Brand (goes to About/Home) -->
+        <div class="brand">
+            <NavLink href="/" Match="NavLinkMatch.All">
+                Ryley Goodine
+            </NavLink>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+
+            <NavLink href="/projects">
+                Projects
+            </NavLink>
+
+        </nav>
+
+    </div>
+</header>
+
+<style>
+    .app-header {
+        background: #1f2937;
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
+
+    .header-container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .brand a {
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .main-nav {
+        display: flex;
+        gap: 2rem;
+    }
+
+        .main-nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: .2s ease;
+        }
+
+            .main-nav a:hover {
+                color: white;
+            }
+
+            /* Active NavLink styling */
+            .main-nav a.active {
+                color: white;
+                border-bottom-color: #60a5fa;
+            }
+
+    @@media (max-width: 768px) {
+        .header-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-nav {
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+</style>
