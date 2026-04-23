@@ -27,6 +27,7 @@
                 }
             },
 
+            // Fighting Game Prototype
             new()
             {
                 Slug = "fighting-game-prototype",
@@ -47,6 +48,7 @@
                 }
             },
 
+            // Pokémon Capstone Project
             new()
             {
                 Slug = "pokemon-capstone",
@@ -66,6 +68,7 @@
                 }
             },
 
+            // Portfolio Website
             new()
             {
                 Slug = "portfolio-site",

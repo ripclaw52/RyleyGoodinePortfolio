@@ -19,6 +19,7 @@
         @foreach (var project in projects)
         {
             <ProjectCard
+                ThumbnailUrl="@project.ThumbnailUrl"
                 Slug="@project.Slug"
                 Title="@project.Title"
                 Description="@project.Summary"
