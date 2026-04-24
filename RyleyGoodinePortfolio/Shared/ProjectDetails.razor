@@ -1,4 +1,6 @@
-﻿@using RyleyGoodinePortfolio.Models;
+﻿@using RyleyGoodinePortfolio.Component
+@using RyleyGoodinePortfolio.Models;
+@using RyleyGoodinePortfolio.Data;
 
 @page "/projects/{Slug}"
 
@@ -58,6 +60,28 @@ else
                 What was built, what worked,
                 what you learned.
             </p>
+        </section>
+
+
+        <section>
+            <h2>Media</h2>
+            @foreach (var media in Project.Media)
+            {
+                <MediaProjectCard
+                    Media="media"
+                    />
+
+                if (media.Type == MediaType.Image)
+                {
+                    <img src="@media.Url" alt="@Project.Title" class="case-study-media" />
+                }
+                else if (media.Type == MediaType.Video)
+                {
+                    <div class="video-wrapper">
+                        <iframe src="@media.Url" title="@Project.Title" allowfullscreen></iframe>
+                    </div>
+                }
+            }
         </section>
 
     </section>

@@ -1,4 +1,6 @@
-﻿namespace RyleyGoodinePortfolio.Models
+﻿using RyleyGoodinePortfolio.Models;
+
+namespace RyleyGoodinePortfolio.Data
 {
     public static class ProjectRepository
     {
@@ -68,26 +70,56 @@
                 }
             },
 
-            // Portfolio Website
+            // art Work
             new()
             {
-                Slug = "portfolio-site",
+                Slug = "art-work",
 
-                Title = "Portfolio Website",
+                Title = "Art Work",
 
                 Summary =
-                    "Responsive Blazor portfolio with reusable components.",
+                    "Personal artwork of images and videos",
 
                 Description =
-                    "Built with layouts, reusable cards, and case study routing.",
+                    "Personal artwork of images and videos.",
 
                 Technologies = new()
                 {
-                    "Blazor",
-                    "CSS",
-                    "Razor"
+                    "Illustrator",
+                    "Photoshop",
+                    "XD",
+                    "After Effects",
+                    "Premiere Pro"
+                },
+
+                Media = new()
+                {
+                    /* VIDEOS */
+                    // Weight of Love - Black Keys - Kinetic Typography
+                    new() {
+                        Type=MediaType.Video,
+                        Url="https://geo.dailymotion.com/player.html?video=xa6wl5g",
+                        Caption="Weight of Love by the Black Keys - Kinetic Typography",
+                    },
+
+                    // Pulp Fiction - Kinetic Typography
+                    new() {
+                        Type=MediaType.Video,
+                        Url="https://dai.ly/xa63mio",
+                        Caption="Pulp Fiction - Kinetic Typography"
+                    },
+
+                    // Life and Death of a Star
+                    new()
+                    {
+                        Type=MediaType.Video,
+                        Url="https://dai.ly/xa6wl5g",
+                        Caption="Life and Death of a Star"
+                    },
+
+                    /* IMAGES */
                 }
-            }
+            },
 
 
             };

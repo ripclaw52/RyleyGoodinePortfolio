@@ -8,7 +8,7 @@
         public string Summary { get; set; } = "";
         public string Description { get; set; } = "";
         public List<string> Technologies { get; set; } = new();
+        public List<ProjectMedia> Media { get; set; } = new();
         public string? GitHubUrl { get; set; }
-        public string? DemoUrl { get; set; }
     }
 }
