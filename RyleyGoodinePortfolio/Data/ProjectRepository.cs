@@ -113,7 +113,7 @@ namespace RyleyGoodinePortfolio.Data
                     new()
                     {
                         Type=MediaType.Video,
-                        Url="https://dai.ly/xa6wl5g",
+                        Url="https://geo.dailymotion.com/player.html?video=xa6wkte",
                         Caption="Life and Death of a Star"
                     },
 
