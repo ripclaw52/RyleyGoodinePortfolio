@@ -9,29 +9,107 @@
             <img src="@Media.Url"
                  alt="@Media.Caption"
                  class="media-preview" />
+
+            <div class="card-content">
+                <h3> @Media.Caption </h3>
+            </div>
         }
 
         @if (Media.Type == MediaType.Video)
         {
-            <div class="video-wrapper">
-                <iframe src="@Media.Url"
-                        allowfullscreentitle="@Media.Caption"
-                        allow="web-share"
-                        >
-                </iframe>
+            <div class="video-thumbnail"
+                 @onclick="OpenVideo">
+
+                <img src="@GetThumbnailUrl()"
+                     alt="@Media.Caption" />
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="card-content">
+                <h3> @Media.Caption </h3>
+                <p>
+                    Watch video 
+                    <a href="@Media.Url" target="_blank">here</a>
+                </p>
             </div>
         }
     }
-
-    <div class="card-content">
-
-        <h3> @Media.Caption </h3>
-
-    </div>
-
 </article>
 
+@if (showModal)
+{
+    <div class="modal-overlay" @onclick="CloseVideo">
+        
+        <div class="modal-content"
+             @onclick:stopPropagation>
+
+            <iframe src="@GetEmbedUrl()"
+                    title="@Media.Caption"
+                    allowfullscreen
+                    allow="fullscreen; picture-in-picture; web-share">
+            </iframe>
+
+        </div>
+        <button class="close-btn" @onclick="CloseVideo">✕</button>
+    </div>
+}
+
+<!-- Modal styles and video thumbnail styles -->
 <style>
+    /* Modal styles */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .modal-content {
+        width: 50%;
+        max-width: 900px;
+        position: relative;
+        padding-bottom: 56.25%;
+    }
+
+        .modal-content iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+    /* Video thumbnail styles */
+    .video-thumbnail {
+        position: relative;
+        cursor: pointer;
+    }
+
+        .video-thumbnail img {
+            width: 100%;
+            display: block;
+        }
+
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: white;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        padding: 10px 18px;
+    }
+
+    /* Card styles */
     .media-card {
         background: white;
         border-radius: 12px;
@@ -83,7 +161,27 @@
 
 @code {
 
+    bool showModal = false;
+    void OpenVideo() => showModal = true;
+    void CloseVideo() => showModal = false;
+
+
     [Parameter]
     public ProjectMedia Media { get; set; } = new();
 
+    // Open the video in a new tab when the thumbnail is clicked
+    private string GetThumbnailUrl()
+    {
+        // Extract video ID from URL
+        var id = Media.Url.Split("video=").Last();
+
+        return $"https://www.dailymotion.com/thumbnail/video/{id}";
+    }
+
+    // Get the embed URL for the video, ensuring it is safe for embedding
+    private string GetEmbedUrl()
+    {
+        var id = Media.Url.Split("video=").Last();
+        return $"https://geo.dailymotion.com/player.html?video={id}&autoplay=0&controls=1";
+    }
 }

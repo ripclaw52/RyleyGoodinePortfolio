@@ -74,14 +74,12 @@ namespace RyleyGoodinePortfolio.Data
             new()
             {
                 Slug = "art-work",
-
                 Title = "Art Work",
+                ThumbnailUrl = "",
 
-                Summary =
-                    "Personal artwork of images and videos",
+                Summary = "Personal artwork of images and videos",
 
-                Description =
-                    "Personal artwork of images and videos.",
+                Description = "Personal artwork of images and videos.",
 
                 Technologies = new()
                 {
