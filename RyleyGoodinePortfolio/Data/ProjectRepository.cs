@@ -75,7 +75,7 @@ namespace RyleyGoodinePortfolio.Data
             {
                 Slug = "art-work",
                 Title = "Art Work",
-                ThumbnailUrl = "",
+                ThumbnailUrl = "https://cdn.imgchest.com/files/6ca130d0df7f.png",
 
                 Summary = "Personal artwork of images and videos",
 
@@ -116,6 +116,141 @@ namespace RyleyGoodinePortfolio.Data
                     },
 
                     /* IMAGES */
+                    new()
+                    {
+                        // blue superman stencil
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/0ba5de1ba153.png",
+                        Caption="Blue Superman Stencil"
+                    },
+
+                    new()
+                    {
+                        // andy warhol superman stencil
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/650518e5a396.png",
+                        Caption="Andy Warhol Superman Stencil"
+                    },
+
+                    new()
+                    {
+                        // arkham batman stencil
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/73c42cf36999.png",
+                        Caption="Arkham Batman Stencil"
+                    },
+                    
+                    new()
+                    {
+                        // arkham batman symbol stencil
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/25f336dac9ec.png",
+                        Caption="Arkham Batman Symbol Stencil"
+                    },
+                    
+                    new()
+                    {
+                        // arkham joker high-detail abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/8537dca1dff6.png",
+                        Caption="Arkham Joker High-Detail Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // green lantern 1
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/3e78fb9255cf.png",
+                        Caption="Green Lantern 1"
+                    },
+                    
+                    new()
+                    {
+                        // clone trooper abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/b72492fda2f3.png",
+                        Caption="Clone Trooper Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // hexagon pattern abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/bfd61a46ab39.png",
+                        Caption="Hexagon Pattern Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // optical illusion abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/74b907fbb261.png",
+                        Caption="Optical Illusion Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // green lantern 2
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/ed87d011259c.png",
+                        Caption="Green Lantern 2"
+                    },
+                    
+                    new()
+                    {
+                        // colour wheel abtract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/ad0f66557f24.png",
+                        Caption="Colour Wheel Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // destiny exo head abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/a5c66a3d8bfe.png",
+                        Caption="Destiny Exo Head Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // destiny vandal head abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/5fb7317d2e09.png",
+                        Caption="Destiny Vandal Head Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // destiny vandal head close-up abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/01c897067abb.png",
+                        Caption="Destiny Vandal Head Close-Up Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // destiny vandal head abstract andy warhol rainbow
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/2a22736e26ba.png",
+                        Caption="Destiny Vandal Head Abstract Andy Warhol Rainbow"
+                    },
+                    
+                    new()
+                    {
+                        // flash lightning bold abstract
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/caa7e03c1c7c.png",
+                        Caption="Flash Lightning Bold Abstract"
+                    },
+                    
+                    new()
+                    {
+                        // superman stencil negative
+                        Type=MediaType.Image,
+                        Url="https://cdn.imgchest.com/files/f569b1bafcff.png",
+                        Caption="Superman Stencil Negative"
+                    },
                 }
             },
 
