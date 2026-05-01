@@ -4,7 +4,7 @@
 <div class="pill-stack">
     @foreach (var tech in Pills)
     {
-        <span style="@GetStyle(tech)">@tech</span>
+        <span style="@TechColors.GetStyle(tech)">@tech</span>
     }
 </div>
 
@@ -28,13 +28,4 @@
 @code {
     [Parameter]
     public List<string> Pills { get; set; } = new();
-    
-    private string GetStyle(string tech)
-    {
-    if (TechColors.Colors.TryGetValue(tech, out var colors))
-        {
-            return $"background:{colors.bg};color:{colors.fg};";
-        }
-    return "background:#E5E7EB;color:#000000;";
-}
 }

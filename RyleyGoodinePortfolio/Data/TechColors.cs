@@ -2,7 +2,14 @@
 {
     public class TechColors
     {
-        // convert to lowercase in data repository for easier matching, but keep original casing here for display purposes
+        /// <summary>
+        /// Provides a mapping of technology, tool, or language names to their associated background and foreground
+        /// color codes.
+        /// </summary>
+        /// <remarks>This dictionary can be used to retrieve color schemes for various programming
+        /// languages, frameworks, design tools, and related technologies. The color codes are represented as
+        /// hexadecimal strings. The dictionary includes a 'Default' entry for cases where a specific technology is not
+        /// listed.</remarks>
         public static readonly Dictionary<string, (string bg, string fg)> Colors = new()
         {
             // --- Adobe / Design ---
@@ -88,5 +95,21 @@
             // --- Fallback ---
             ["Default"] = ("#E5E7EB", "#000000")
         };
+
+        /// <summary>
+        /// Retrieves the CSS style string associated with the specified technology key.
+        /// </summary>
+        /// <param name="tech">The technology key used to look up the corresponding style. If the key is not found, a default style is
+        /// returned. Cannot be null.</param>
+        /// <returns>A CSS style string containing background and foreground color values for the specified technology. Returns
+        /// the default style if the key is not found.</returns>
+        public static string GetStyle(string tech)
+        {
+            if (Colors.TryGetValue(tech, out var colors))
+            {
+                return $"background:{colors.bg};color:{colors.fg};";
+            }
+            return $"background:{Colors["Default"].bg};color:{Colors["Default"].fg};";
+        }
     }
 }
