@@ -15,12 +15,7 @@
 
                 @if (Media.Technologies?.Any() == true)
                 {
-                    <div class="tech-stack">
-                        @foreach (var tech in Media.Technologies)
-                        {
-                            <span>@tech</span>
-                        }
-                    </div>
+                    <ItemPillSet Pills="Media.Technologies" />
                 }
             </div>
         }
@@ -48,12 +43,7 @@
 
                 @if (Media.Technologies?.Any() == true)
                 {
-                    <div class="tech-stack">
-                        @foreach (var tech in Media.Technologies)
-                        {
-                            <span>@tech</span>
-                        }
-                    </div>
+                    <ItemPillSet Pills="Media.Technologies" />
                 }
             </div>
         }
@@ -162,19 +152,6 @@
     .card-content {
         padding: 1.25rem;
     }
-
-    .tech-stack {
-        display: flex;
-        gap: .5rem;
-        flex-wrap: wrap;
-        margin: 1rem 0;
-    }
-
-        .tech-stack span {
-            background: #e5e7eb;
-            padding: .4rem .8rem;
-            border-radius: 999px;
-        }
 </style>
 
 

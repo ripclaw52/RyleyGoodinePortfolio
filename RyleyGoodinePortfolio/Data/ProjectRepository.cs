@@ -18,14 +18,14 @@ namespace RyleyGoodinePortfolio.Data
                         "Admin-editable modular seat reservation tool.",
 
                     Description=
-                        "Built using Blazor and MySQL to support reservation workflows.",
+                        "Built using Blazor and SQL to support reservation workflows.",
 
                     Technologies=
                     new()
                     {
                         "Blazor",
                         "C#",
-                        "MySQL"
+                        "SQL"
                     }
                 },
 

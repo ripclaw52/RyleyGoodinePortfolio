@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Components
+@using RyleyGoodinePortfolio.Data
+
+<div class="pill-stack">
+    @foreach (var tech in Pills)
+    {
+        <span style="@GetStyle(tech)">@tech</span>
+    }
+</div>
+
+<style>
+    .pill-stack {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+    }
+
+    .pill-stack span {
+        border-radius: 999px;
+        padding: .4rem .8rem;
+        font-size: .85rem;
+        font-weight: 500;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+    }
+</style>
+
+@code {
+    [Parameter]
+    public List<string> Pills { get; set; } = new();
+    
+    private string GetStyle(string tech)
+    {
+    if (TechColors.Colors.TryGetValue(tech, out var colors))
+        {
+            return $"background:{colors.bg};color:{colors.fg};";
+        }
+    return "background:#E5E7EB;color:#000000;";
+}
+}

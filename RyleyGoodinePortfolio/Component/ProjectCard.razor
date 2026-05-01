@@ -13,12 +13,7 @@
 
     @if (Technologies?.Any() == true)
     {
-        <div class="tech-stack">
-            @foreach (var tech in Technologies)
-            {
-                <span>@tech</span>
-            }
-        </div>
+        <ItemPillSet Pills="Technologies" />
     }
 
     <NavLink href="@($"/projects/{@Slug}")" class="details-link">
