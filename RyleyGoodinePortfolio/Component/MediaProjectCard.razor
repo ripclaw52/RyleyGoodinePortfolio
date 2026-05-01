@@ -12,6 +12,16 @@
 
             <div class="card-content">
                 <h3> @Media.Caption </h3>
+
+                @if (Media.Technologies?.Any() == true)
+                {
+                    <div class="tech-stack">
+                        @foreach (var tech in Media.Technologies)
+                        {
+                            <span>@tech</span>
+                        }
+                    </div>
+                }
             </div>
         }
 
@@ -35,6 +45,16 @@
                     Watch video 
                     <a href="@Media.Url" target="_blank">here</a>
                 </p>
+
+                @if (Media.Technologies?.Any() == true)
+                {
+                    <div class="tech-stack">
+                        @foreach (var tech in Media.Technologies)
+                        {
+                            <span>@tech</span>
+                        }
+                    </div>
+                }
             </div>
         }
     }
@@ -143,19 +163,18 @@
         padding: 1.25rem;
     }
 
-    .software-tag {
-        display: inline-block;
-        margin-top: .5rem;
-        background: #e5e7eb;
-        padding: .35rem .75rem;
-        border-radius: 999px;
+    .tech-stack {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
     }
 
-    .media-count {
-        margin-top: 1rem;
-        font-size: .9rem;
-        color: #6b7280;
-    }
+        .tech-stack span {
+            background: #e5e7eb;
+            padding: .4rem .8rem;
+            border-radius: 999px;
+        }
 </style>
 
 
