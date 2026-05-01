@@ -1,0 +1,153 @@
+﻿@using RyleyGoodinePortfolio.Models
+
+<p style="color:red">@ThumbnailUrl</p>
+
+<div class="video-card" @onclick="OpenModal">
+
+    <div class="thumbnail-wrapper">
+
+        @if (!string.IsNullOrEmpty(ThumbnailUrl))
+        {
+            <img src="@ThumbnailUrl" alt="@Title" />
+        }
+
+        <div class="play-overlay">
+            ▶
+        </div>
+
+    </div>
+
+</div>
+
+@if (IsOpen)
+{
+    <div class="modal-backdrop" @onclick="CloseModal">
+
+        <div class="modal-content" @onclick:stopPropagation>
+
+            <button class="close-btn" @onclick="CloseModal">✕</button>
+
+            @if (!string.IsNullOrEmpty(EmbedUrl))
+            {
+                <div class="video-wrapper">
+                    <iframe src="@($"{EmbedUrl}?autoplay=1")"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            }
+
+        </div>
+
+    </div>
+}
+
+<style>
+    .video-card {
+        cursor: pointer;
+        position: relative;
+    }
+
+    .thumbnail-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9; /* 🔥 THIS FIXES YOUR ISSUE */
+        background: #ddd; /* fallback color */
+        overflow: hidden;
+    }
+
+        .thumbnail-wrapper img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+    /* Play button */
+    .play-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+        background: rgba(0,0,0,0.3);
+        opacity: 1;
+        transition: opacity 0.2s ease;
+    }
+
+    .video-card:hover .play-overlay {
+        opacity: 1;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        position: relative;
+        width: 80%;
+        max-width: 900px;
+    }
+
+    /* Video */
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+    }
+
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+    /* Close button */
+    .close-btn {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+</style>
+
+@code {
+
+    [Parameter] public string VideoUrl { get; set; } = "";
+    [Parameter] public string Title { get; set; } = "";
+
+    private string? EmbedUrl;
+    private string? ThumbnailUrl;
+
+    private bool IsOpen = false;
+
+    protected override void OnParametersSet()
+    {
+        var result = VideoHelper.Parse(VideoUrl);
+
+        EmbedUrl = result.embedUrl;
+        ThumbnailUrl = result.thumbnailUrl;
+    }
+
+    private void OpenModal()
+    {
+        IsOpen = true;
+    }
+
+    private void CloseModal()
+    {
+        IsOpen = false;
+    }
+}

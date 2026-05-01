@@ -12,7 +12,7 @@
 }
 else
 {
-    <section class="case-study">
+    <section class="projects-page">
 
         <header>
             <h1>@Project.Title</h1>
@@ -22,16 +22,16 @@ else
             </p>
         </header>
 
-        <section>
+        <div>
             <h2>Overview</h2>
 
             <p>
                 @Project.Description
             </p>
-        </section>
+        </div>
 
 
-        <section>
+        <div>
             <h2>Tech Stack</h2>
 
             <ul>
@@ -40,47 +40,59 @@ else
                     <li>@tech</li>
                 }
             </ul>
-        </section>
+        </div>
 
 
-        <section>
+        <div>
             <h2>Challenges</h2>
 
             <p>
                 Describe architecture problems,
                 bugs solved, tradeoffs made.
             </p>
-        </section>
+        </div>
 
 
-        <section>
+        <div>
             <h2>Results</h2>
 
             <p>
                 What was built, what worked,
                 what you learned.
             </p>
-        </section>
+        </div>
 
         <!-- 3 column rows for cards -->
         <h2>Media</h2>
-        <section class="project-detail-grid">    
+        <div class="grid-container">    
             @foreach (var media in Project.Media)
             {
                 <MediaProjectCard
                     Media="media"
                     />
             }
-        </section>
+        </div>
 
     </section>
 }
 
 <style>
-    .project-detail-grid {
+    section {
+
+    }
+
+    .projects-page {
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-        gap: 2rem;
+        //place-items: center;
+        min-height: 100vh;
+        margin: auto;
+        padding: 4rem 2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 </style>
 

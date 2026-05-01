@@ -22,17 +22,9 @@
 
         @if (Media.Type == MediaType.Video)
         {
-            <div class="video-thumbnail"
-                 @onclick="OpenVideo">
-
-                <img src="@GetThumbnailUrl()"
-                     alt="@Media.Caption" />
-
-                <div class="play-button">
-                    ▶
-                </div>
-
-            </div>
+            <VideoThumbnailModal
+                VideoUrl="@Media.Url"
+                Title="@Media.Caption"/>
 
             <div class="card-content">
                 <h3> @Media.Caption </h3>
@@ -49,24 +41,6 @@
         }
     }
 </article>
-
-@if (showModal)
-{
-    <div class="modal-overlay" @onclick="CloseVideo">
-        
-        <div class="modal-content"
-             @onclick:stopPropagation>
-
-            <iframe src="@GetEmbedUrl()"
-                    title="@Media.Caption"
-                    allowfullscreen
-                    allow="fullscreen; picture-in-picture; web-share">
-            </iframe>
-
-        </div>
-        <button class="close-btn" @onclick="CloseVideo">✕</button>
-    </div>
-}
 
 <!-- Modal styles and video thumbnail styles -->
 <style>
@@ -156,28 +130,6 @@
 
 
 @code {
-
-    bool showModal = false;
-    void OpenVideo() => showModal = true;
-    void CloseVideo() => showModal = false;
-
-
     [Parameter]
     public ProjectMedia Media { get; set; } = new();
-
-    // Open the video in a new tab when the thumbnail is clicked
-    private string GetThumbnailUrl()
-    {
-        // Extract video ID from URL
-        var id = Media.Url.Split("video=").Last();
-
-        return $"https://www.dailymotion.com/thumbnail/video/{id}";
-    }
-
-    // Get the embed URL for the video, ensuring it is safe for embedding
-    private string GetEmbedUrl()
-    {
-        var id = Media.Url.Split("video=").Last();
-        return $"https://geo.dailymotion.com/player.html?video={id}&autoplay=0&controls=1";
-    }
 }

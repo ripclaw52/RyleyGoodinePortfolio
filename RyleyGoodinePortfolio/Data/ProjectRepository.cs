@@ -107,7 +107,7 @@ namespace RyleyGoodinePortfolio.Data
                         // Pulp Fiction - Kinetic Typography
                         new() {
                             Type=MediaType.Video,
-                            Url="https://dai.ly/xa63mio",
+                            Url="https://player.vimeo.com/video/1188533777?h=73c3758453",
                             Caption="Pulp Fiction - Kinetic Typography",
                             Technologies = new()
                             {
