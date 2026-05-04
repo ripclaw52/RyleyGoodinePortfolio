@@ -64,12 +64,12 @@ else
 
         <!-- 3 column rows for cards -->
         <h2>Media</h2>
-        <div class="grid-container">    
-            @foreach (var media in Project.Media)
+        <div class="media-grid">
+            @foreach (var (media, index) in Project.Media.Select((m, i) => (m, i)))
             {
-                <MediaProjectCard
-                    Media="media"
-                    />
+                <MediaProjectCard Media="media"
+                                  MediaList="Project.Media"
+                                  Index="index" />
             }
         </div>
 
@@ -77,8 +77,11 @@ else
 }
 
 <style>
-    section {
-
+    .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
 
     .projects-page {
@@ -87,12 +90,6 @@ else
         min-height: 100vh;
         margin: auto;
         padding: 4rem 2rem;
-    }
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
     }
 </style>
 

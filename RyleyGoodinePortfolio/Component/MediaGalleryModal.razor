@@ -1,0 +1,159 @@
+﻿@using RyleyGoodinePortfolio.Models
+
+@if (IsOpen && MediaItems?.Any() == true)
+{
+    <div class="modal-backdrop" @onclick="Close">
+
+        <div class="modal-content" @onclick:stopPropagation tabindex="0" @ref="ModalRef" @onkeydown="HandleKey">
+
+            <button class="close-btn" @onclick="Close">✕</button>
+
+            <button class="nav prev" @onclick="Prev">❮</button>
+            <button class="nav next" @onclick="Next">❯</button>
+            
+            <div class="caption">
+                <h3>@CurrentMedia.Caption</h3>
+            </div>
+
+            <div class="media-container">
+                @if (CurrentMedia.Type == MediaType.Image)
+                {
+                    <img src="@CurrentMedia.Url" alt="@CurrentMedia.Caption" />
+                }
+                else if (CurrentMedia.Type == MediaType.Video)
+                {
+                    var parsed = VideoHelper.Parse(CurrentMedia.Url);
+
+                    if (!string.IsNullOrEmpty(parsed.embedUrl))
+                    {
+                        <iframe src="@($"{parsed.embedUrl}?autoplay=1")"
+                                allowfullscreen>
+                        </iframe>
+                    }
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+}
+
+<style>
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+    z-index: 2000;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    outline: none;
+}
+
+.media-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: black;
+}
+
+.media-container img,
+.media-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+}
+
+.caption {
+    margin-top: 1rem;
+    color: white;
+}
+
+/* Nav buttons */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    z-index: 10;
+}
+
+.nav.prev { left: 10px; }
+.nav.next { right: 10px; }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 2rem;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: .25rem .5rem;
+}
+</style>
+
+@code {
+    [Parameter] public List<ProjectMedia> MediaItems { get; set; } = new();
+    [Parameter] public int StartIndex { get; set; } = 0;
+
+    private int CurrentIndex;
+    private bool IsOpen;
+
+    private ElementReference ModalRef;
+
+    private ProjectMedia CurrentMedia => MediaItems[CurrentIndex];
+
+    public async Task Open(int index)
+    {
+        CurrentIndex = index;
+        IsOpen = true;
+
+        await Task.Delay(1);
+        await ModalRef.FocusAsync();
+    }
+
+    private void Close() => IsOpen = false;
+
+    private void Next()
+    {
+        CurrentIndex = (CurrentIndex + 1) % MediaItems.Count;
+    }
+
+    private void Prev()
+    {
+        CurrentIndex = (CurrentIndex - 1 + MediaItems.Count) % MediaItems.Count;
+    }
+
+    private void HandleKey(KeyboardEventArgs e)
+    {
+        if (e.Key == "Escape") Close();
+        if (e.Key == "ArrowRight") Next();
+        if (e.Key == "ArrowLeft") Prev();
+    }
+}
