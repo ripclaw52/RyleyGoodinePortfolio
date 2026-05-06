@@ -1,4 +1,11 @@
-﻿using RyleyGoodinePortfolio.Models;
+﻿using Microsoft.VisualBasic;
+using RyleyGoodinePortfolio.Models;
+using System.Buffers.Text;
+using System.Data;
+using System.Linq.Expressions;
+using System.Timers;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RyleyGoodinePortfolio.Data
 {
@@ -7,7 +14,7 @@ namespace RyleyGoodinePortfolio.Data
         public static List<Project> GetAll() =>
             new()
             {
-                // Bus Seating Widget
+                // Edmonton Property Assessment Tool
                 new Project
                 {
                     Slug="bus-seating-widget",
@@ -29,25 +36,106 @@ namespace RyleyGoodinePortfolio.Data
                     }
                 },
 
-                // Fighting Game Prototype
+                // Property Assessment Tool City of Edmonton
                 new Project()
                 {
-                    Slug = "fighting-game-prototype",
+                    Slug = "property-assessment-tool",
 
-                    Title = "Fighting Game Prototype",
+                    Title = "Property Assessment Tool City of Edmonton",
 
-                    Summary =
-                        "Smash-inspired Unity fighting game prototype.",
+                    // card description
+                    Summary = "This project is an interactive dashboard that combines property values, crime data, " +
+                    "and cultural insights to help users evaluate and compare neighbourhoods in Edmonton. By visualizing" +
+                    " complex data in a clear, accessible way, it simplifies the decision-making process when choosing" +
+                    " where to live.",
 
-                    Description =
-                        "Designed combat systems, animations, and mechanics.",
+                    // paragraph
+                    Description = "Moving to a new city is a complex and stressful process that requires evaluating factors" +
+                    " like housing costs, safety, and cultural fit, yet this information is often scattered and difficult to" +
+                    " interpret. This project presents a data visualization dashboard focused on Edmonton that consolidates " +
+                    "property values, recent crime data, and neighbourhood language distribution into an interactive, " +
+                    "user-friendly interface. By combining map - based exploration with dynamic charts and filters, the " +
+                    "application allows users to easily compare neighbourhoods and gain meaningful insights without needing" +
+                    " specialized knowledge.Built using Python, pandas, Plotly, and Dash, the dashboard emphasizes clarity, " +
+                    "interactivity, and accessibility, though it currently relies on static datasets and has room for future " +
+                    "enhancements such as real - time data integration, expanded property details, and improved mapping " +
+                    "features.",
 
                     Technologies = new()
                     {
-                        "Unity",
-                        "C#",
-                        "Blender"
-                    }
+                        "python",
+                        "html",
+                        "css",
+                        "pycharm",
+                        "acrobat",
+                        "excel",
+                        "word",
+
+                    },
+
+                    // each string is a paragraph of content for the project page
+                    ProjectContent = new()
+                    {
+                        new Details("p", "Moving to a new city or neighbourhood can be a complex and stressful process, " +
+                            "requiring individuals to evaluate multiple factors such as housing affordability, safety, and " +
+                            "cultural fit.However, much of this information is often fragmented across different platforms or " +
+                            "presented in ways that are difficult to interpret. This project introduces a data-driven " +
+                            "dashboard designed to consolidate and visualize key neighbourhood insights, helping users make " +
+                            "more informed decisions about where to live."),
+                        new Details("p", "At its core, the dashboard leverages principles of information visualization to " +
+                            "transform raw data into intuitive, interactive visuals. Similar to how stock market dashboards " +
+                            "simplify complex financial data through graphs and colour cues, this application presents " +
+                            "neighbourhood data in a clear and accessible format. By combining multiple datasets into a single " +
+                            "interface, users can quickly grasp trends and comparisons without needing specialized knowledge."),
+                        new Details("p", "The application focuses specifically on the city of Edmonton, using datasets that " +
+                            "include current property assessment values, recent crime reports from the past 90 days, and " +
+                            "census data on language distribution from 2016. Property values provide insight into the relative " +
+                            "cost and desirability of neighbourhoods, while crime data offers a perspective on safety. " +
+                            "Language distribution helps users understand the cultural composition of communities, which can " +
+                            "be especially important for those seeking a sense of belonging or cultural familiarity."),
+                        new Details("p", "The design of the dashboard emphasizes clarity, usability, and visual hierarchy. " +
+                            "Inspired by tools such as COVID-19 dashboards and mapping platforms like Google Maps, the " +
+                            "interface integrates a geographic map with supporting charts and filters. Users can explore " +
+                            "neighbourhoods spatially, filter by property value ranges, and view crime data plotted directly " +
+                            "on the map. Additional visual elements, such as colour coding and whitespace, are used " +
+                            "strategically to reduce visual clutter and highlight important information."),
+                        new Details("p", "Interactivity is a key feature of the system. Users can select neighbourhoods " +
+                            "through a search bar or directly on the map, triggering updates across multiple visual " +
+                            "components. Crime data is broken down into categories and subcategories, allowing for deeper " +
+                            "analysis through selectable filters and dynamically generated graphs. A separate comparison view " +
+                            "enables users to evaluate multiple neighbourhoods side by side, focusing on metrics like average " +
+                            "property value and language distribution."),
+                        new Details("p", "From a technical standpoint, the application is built using Python and several " +
+                            "supporting libraries. Data is processed using pandas, while visualizations are created with " +
+                            "Plotly. The Dash framework is used to render the interactive web interface, integrating charts, " +
+                            "maps, and UI components such as dropdown menus and radio buttons. Geographic data is incorporated " +
+                            "through GeoJSON to accurately map neighbourhood boundaries."),
+                        new Details("p", "Despite its functionality, the project has several limitations. The datasets are " +
+                            "static and stored in CSV format, which restricts real-time updates and scalability. Additionally, " +
+                            "property data is limited primarily to residential information, and deeper property-level details " +
+                            "are not yet included. Crime data, while geographically mapped, lacks direct linkage to specific " +
+                            "neighbourhood boundaries, making certain comparisons more complex."),
+                        new Details("p", "Future improvements could significantly enhance the application’s usefulness. " +
+                            "Integrating live data through APIs would allow for real-time updates, while expanding datasets " +
+                            "could provide more granular insights into properties and neighbourhood characteristics. " +
+                            "Enhancements to the map—such as weighted crime indicators or integrated cultural data " +
+                            "overlays—would improve visual clarity and analytical depth. There is also potential to connect " +
+                            "with external services like mapping platforms to provide real-world context for individual " +
+                            "properties."),
+                        new Details("p", "Evaluation of the dashboard would focus heavily on user testing to refine usability " +
+                            "and effectiveness. Feedback on interface design, navigation flow, and data presentation would " +
+                            "guide iterative improvements. Performance optimization, including faster data processing and " +
+                            "rendering, would also be a priority to ensure a smooth user experience."),
+                        new Details("p", "In conclusion, this dashboard represents a practical application of data " +
+                            "visualization techniques to address a real-world problem. By centralizing and simplifying access " +
+                            "to important neighbourhood data, it empowers users to make better-informed decisions about where " +
+                            "to live. With further development, expanded datasets, and improved interactivity, the application " +
+                            "has the potential to become a highly valuable tool for urban exploration and relocation planning."),
+                    },
+
+                    Media = new() { },
+
+                    GitHubUrl = "https://github.com/ripclaw52/pythonPandasAndNumpyTestProject.git",
                 },
 
                 // Pokémon Capstone Project

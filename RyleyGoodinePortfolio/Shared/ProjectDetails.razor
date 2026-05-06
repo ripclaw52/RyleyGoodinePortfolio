@@ -1,10 +1,14 @@
 ﻿@using RyleyGoodinePortfolio.Component
 @using RyleyGoodinePortfolio.Models;
 @using RyleyGoodinePortfolio.Data;
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Components
 
 @page "/projects/{Slug}"
 
 <PageTitle>@Project?.Title</PageTitle>
+
+<!-- breadcrumb navigation -->
 
 @if (Project is null)
 {
@@ -12,39 +16,43 @@
 }
 else
 {
-    <section class="projects-page">
+    <div class="container projects-page">
 
-        <header>
+        <div class="col-xl title-group">
             <h1>@Project.Title</h1>
+        </div>
 
-            <p class="summary">
-                @Project.Summary
-            </p>
-        </header>
-
-        <div>
-            <h2>Overview</h2>
-
+        <div class="col-xl overview-group">
+            <h3>Overview</h3>
+            <!--
+            Should be a short paragraph describing the project
+            @Project.Summary is 1-2 sentences of the description.
+            -->
             <p>
                 @Project.Description
             </p>
         </div>
 
+        <div class="tech-group">
+            <h3>Tech Stack</h3>
 
-        <div>
-            <h2>Tech Stack</h2>
-
-            <ul>
-                @foreach (var tech in Project.Technologies)
-                {
-                    <li>@tech</li>
-                }
-            </ul>
+            <TechPills TechList="Project.Technologies" />
         </div>
 
+        <!-- The meat of the project -->
+        <div class="content-group">
+            @if (Project.ProjectContent != null && Project.ProjectContent.Any())
+            {
+                @foreach (var i in Project.ProjectContent)
+                {
+                    @RenderElement(i)
+                }
+            }
+        </div>
 
+        <!--
         <div>
-            <h2>Challenges</h2>
+            <h3>Challenges</h3>
 
             <p>
                 Describe architecture problems,
@@ -54,27 +62,36 @@ else
 
 
         <div>
-            <h2>Results</h2>
+            <h3>Results</h3>
 
             <p>
                 What was built, what worked,
                 what you learned.
             </p>
         </div>
+        -->
 
         <!-- 3 column rows for cards -->
-        <h2>Media</h2>
-        <div class="media-grid">
-            @foreach (var (media, index) in Project.Media.Select((m, i) => (m, i)))
+        <div class="media-group">
+            @if (Project.Media != null && Project.Media.Any())
             {
-                <MediaProjectCard Media="media"
-                                  MediaList="Project.Media"
-                                  Index="index" />
+                <h2>Media</h2>
+                <div class="row media-grid">
+
+                @foreach (var (media, index) in Project.Media.Select((m, i) => (m, i)))
+                {
+                    <MediaProjectCard Media="media"
+                                      MediaList="Project.Media"
+                                      Index="index" />
+                }
+            
+                </div>
             }
         </div>
 
-    </section>
+    </div>
 }
+
 
 <style>
     .media-grid {
@@ -86,7 +103,6 @@ else
 
     .projects-page {
         display: grid;
-        //place-items: center;
         min-height: 100vh;
         margin: auto;
         padding: 4rem 2rem;
@@ -106,5 +122,12 @@ else
             .GetAll()
             .FirstOrDefault(p => p.Slug == Slug);
     }
+
+    private RenderFragment RenderElement(Details i) => builder =>
+    {
+        builder.OpenElement(0, i.E); // dynamic tag name
+        builder.AddContent(1, i.C);
+        builder.CloseElement();
+    };
 
 }

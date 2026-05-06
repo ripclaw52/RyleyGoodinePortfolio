@@ -1,6 +1,6 @@
 ﻿@using RyleyGoodinePortfolio.Models
 
-<article class="media-card" @onclick="() => OpenMedia(Index)">
+<div class="col-sm media-card" @onclick="() => OpenMedia(Index)">
 
     @if (Media.Type == MediaType.Image)
     {
@@ -21,11 +21,11 @@
 
         @if (Media.Technologies?.Any() == true)
         {
-            <ItemPillSet Pills="Media.Technologies" />
+            <TechPills Pills="Media.Technologies" />
         }
     </div>
 
-</article>
+</div>
 
 <MediaGalleryModal @ref="Gallery" MediaItems="MediaList" />
 

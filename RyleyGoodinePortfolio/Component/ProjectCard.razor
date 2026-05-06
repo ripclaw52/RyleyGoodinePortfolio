@@ -13,7 +13,7 @@
 
     @if (Technologies?.Any() == true)
     {
-        <ItemPillSet Pills="Technologies" />
+        <TechPills TechList="Technologies" />
     }
 
     <NavLink href="@($"/projects/{@Slug}")" class="details-link">

@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Components
+@using RyleyGoodinePortfolio.Data
+
+<div class="tech-pills">
+    @foreach (var tech in TechList)
+    {
+        <span class="tech-pill"
+              style="@TechColors.GetStyle(tech)"
+              title="@tech">
+            @TechColors.GetShorthand(tech)
+        </span>
+    }
+</div>
+
+<style>
+    .tech-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .tech-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        min-width: 32px;
+        height: 24px;
+        user-select: none;
+        white-space: nowrap;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public List<string> TechList { get; set; } = new();
+}
