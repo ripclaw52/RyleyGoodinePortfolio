@@ -1,0 +1,93 @@
+﻿body {
+font-family: Arial, sans-serif;
+line-height: 1.7;
+margin: 0;
+background: #f4f6f8;
+color: #222;
+    
+}
+
+header {
+background: #2d3748;
+color: white;
+padding: 3rem 2rem;
+text-align: center;
+}
+
+main {
+max-width: 1100px;
+margin: auto;
+padding: 2rem;
+    
+}
+
+section {
+background: white;
+margin-bottom: 2rem;
+padding: 2rem;
+border-radius: 12px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    
+}
+
+h1, h2, h3, h4 {
+color: #1a202c;
+    
+}
+
+h2 {
+border-bottom: 2px solid #e2e8f0;
+padding-bottom: 0.5rem;
+    
+}
+
+ul {
+padding-left: 1.5rem;
+    
+}
+
+.feature-card {
+background: #edf2f7;
+padding: 1rem;
+border-radius: 8px;
+margin-bottom: 1rem;
+    
+}
+
+.code-block {
+background: #1e1e1e;
+color: #f8f8f2;
+padding: 1rem;
+border-radius: 8px;
+overflow-x: auto;
+    
+}
+
+.timeline-item {
+border-left: 4px solid #4299e1;
+padding-left: 1rem;
+margin-bottom: 1rem;
+    
+}
+
+footer {
+text-align: center;
+padding: 2rem;
+color: #666;
+    
+}
+
+.media-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+/*grid-template-columns: repeat(3, 1fr);*/
+gap: 1.5rem;
+margin-top: 2rem;
+}
+
+.projects-page {
+display: grid;
+min-height: 100vh;
+margin: auto;
+padding: 4rem 2rem;
+}

@@ -92,23 +92,7 @@ else
     </div>
 }
 
-
-<style>
-    .media-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .projects-page {
-        display: grid;
-        min-height: 100vh;
-        margin: auto;
-        padding: 4rem 2rem;
-    }
-</style>
-
+<!-- CODE -->
 @code {
 
     [Parameter]
@@ -126,7 +110,7 @@ else
     private RenderFragment RenderElement(Details i) => builder =>
     {
         builder.OpenElement(0, i.E); // dynamic tag name
-        builder.AddContent(1, i.C);
+        builder.AddContent(1, (MarkupString)i.C);
         builder.CloseElement();
     };
 
