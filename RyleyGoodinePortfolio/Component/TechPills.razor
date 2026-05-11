@@ -7,7 +7,14 @@
         <span class="tech-pill"
               style="@TechColors.GetStyle(tech)"
               title="@tech">
-            @TechColors.GetShorthand(tech)
+            @if (ShowCapitalize)
+            {
+                @TechColors.GetCapitalize(tech)
+            }
+            else
+            {
+                @TechColors.GetShorthand(tech)
+            }
         </span>
     }
 </div>
@@ -38,4 +45,6 @@
 @code {
     [Parameter]
     public List<string> TechList { get; set; } = new();
+    [Parameter]
+    public bool ShowCapitalize { get; set; } = false;
 }

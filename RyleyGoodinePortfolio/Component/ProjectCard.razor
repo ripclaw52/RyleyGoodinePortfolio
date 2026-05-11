@@ -1,5 +1,6 @@
-﻿<article class="project-card">
-
+﻿<a href="@($"/projects/{@Slug}")" style="text-decoration: none; color: inherit;">
+<article class="project-card">
+    
     @if (!string.IsNullOrEmpty(ThumbnailUrl))
     {
         <img src="@ThumbnailUrl"
@@ -9,7 +10,7 @@
 
     <h2>@Title</h2>
 
-    <p>@Description</p>
+    <p>@((MarkupString)Summary)</p>
 
     @if (Technologies?.Any() == true)
     {
@@ -21,6 +22,7 @@
     </NavLink>
 
 </article>
+</a>
 
 <!-- STYLE -->
 <style>
@@ -61,6 +63,6 @@
     [Parameter] public string Slug { get; set; } = "";
     [Parameter] public string Title { get; set; } = "";
     [Parameter] public string ThumbnailUrl { get; set; } = "";
-    [Parameter] public string Description { get; set; } = "";
+    [Parameter] public string Summary { get; set; } = "";
     [Parameter] public List<string> Technologies { get; set; } = new();
 }

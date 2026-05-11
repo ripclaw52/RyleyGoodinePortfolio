@@ -1,4 +1,6 @@
-﻿namespace RyleyGoodinePortfolio.Data
+﻿using System.Globalization;
+
+namespace RyleyGoodinePortfolio.Data
 {
     public class TechColors
     {
@@ -183,6 +185,20 @@
             }
 
             return $"background:{Colors["default"].bg};color:{Colors["default"].fg};";
+        }
+
+        public static string GetCapitalize(string tech)
+        {
+            if (string.IsNullOrWhiteSpace(tech))
+                return "";
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            var key = textInfo.ToTitleCase(tech.ToLower().Replace("_", " "));
+            return key switch
+            {
+                "c++" => "C++",
+                "c#" => "C#",
+                _ => string.Concat(key.Split('_').Select(w => char.ToUpper(w[0]) + w.Substring(1)))
+            };
         }
 
         public static string GetShorthand(string tech)
