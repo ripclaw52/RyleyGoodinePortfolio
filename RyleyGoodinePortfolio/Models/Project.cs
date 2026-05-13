@@ -34,8 +34,9 @@ namespace RyleyGoodinePortfolio.Models
         public string? GitHubUrl { get; set; }
 
         // Always initialize collections to avoid null dereference (CS8602)
-        public List<string> Technologies { get; set; } = [];
+        public List<string>? Technologies { get; set; } = [];
         public List<Details>? ProjectContent { get; set; } = [];
+        public List<ProjectBlock>? ProjectBlocks { get; set; } = [];
         public List<ProjectMedia>? Media { get; set; } = [];
     }
 }
