@@ -18,6 +18,7 @@
         // Media
         public string Url { get; set; } = "";
         public string Caption { get; set; } = "";
+        public List<string>? Technologies { get; set; } = [];
 
         // Optional gallery support
         public List<ProjectMedia>? MediaItems { get; set; }

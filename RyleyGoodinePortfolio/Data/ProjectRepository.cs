@@ -79,6 +79,43 @@ namespace RyleyGoodinePortfolio.Data
 
                     },
 
+                    ProjectBlocks = new()
+                    {
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
+                            "<section>" +
+                            "<h1>Property Assessment Tool — City of Edmonton</h1>" +
+                            "<p><strong>The Property Assessment Tool</strong> is an interactive " +
+                            "neighbourhood analysis dashboard designed to help users evaluate " +
+                            "communities within <em>Edmonton, Alberta</em> using multiple " +
+                            "civic and demographic datasets.</p>" +
+
+                            "<p>The application combines:</p>" +
+                            "<ul>" +
+                            "<li><strong>Property assessment values</strong></li>" +
+                            "<li><strong>Recent crime statistics</strong></li>" +
+                            "<li><strong>Language distribution data</strong></li>" +
+                            "<li><strong>Interactive geographic visualization</strong></li>" +
+                            "</ul>" +
+                            "<p>By consolidating this information into a centralized interface, " +
+                            "the dashboard simplifies the process of comparing neighbourhoods " +
+                            "and making informed relocation decisions.</p>" +
+                            "<p>The project was designed as both a practical relocation tool and " +
+                            "a demonstration of modern data visualization principles. Rather " +
+                            "than presenting users with disconnected spreadsheets and raw data, " +
+                            "the application transforms information into interactive visuals " +
+                            "that are easier to understand and navigate.</p>" +
+                            "<p>The dashboard emphasizes accessibility and usability for both " +
+                            "technical and non-technical users. Interactive charts, geographic " +
+                            "mapping, and filtering systems allow users to explore neighbourhood " +
+                            "information naturally without requiring prior experience with " +
+                            "analytical software.</p>" +
+                            "</section>",
+                        },
+                    },
+
                     // each string is a paragraph of content for the project page
                     ProjectContent = new()
                     {
@@ -168,10 +205,13 @@ namespace RyleyGoodinePortfolio.Data
                     Slug = "ets-bus-safety-redesign",
                     Title = "ETS Bus Safety User Experience Redesign",
                     ThumbnailUrl = "",
+                    
+                    //
                     Summary =
                     "<p>ReportIt is a conceptual ETS reporting platform that enables riders to quickly report non-emergency transit " +
-                    "issues through an accessible web-based interface.</p>"
-                    ,
+                    "issues through an accessible web-based interface.</p>",
+
+                    //
                     Description =
                     "<p>ReportIt is a user-focused service design project created to improve the " +
                     "reporting experience for non-emergency issues within the Edmonton Transit " +
@@ -193,8 +233,9 @@ namespace RyleyGoodinePortfolio.Data
                     "ownership and accountability within transit spaces. Future opportunities " +
                     "include integration with official ETS systems, gamified engagement features, " +
                     "accessibility-focused reporting tools, and expanded community moderation " +
-                    "systems.</p><br/><br/>"
-                    ,
+                    "systems.</p><br/><br/>",
+
+                    //
                     Technologies = new()
                     {
                         "figma",
@@ -204,6 +245,29 @@ namespace RyleyGoodinePortfolio.Data
                         "acrobat",
                         "word",
                     },
+
+                    //
+                    ProjectBlocks = new()
+                    {
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
+                            "<section>" +
+                            "<h1>ReportIt — ETS Non-Emergency Reporting System</h1>" +
+
+                            "<p><strong>ReportIt</strong> is a conceptual non-emergency reporting platform designed for the " +
+                            "<strong>Edmonton Transit Service (ETS)</strong>. The project focuses on improving rider safety, " +
+                            "communication, accountability, and public engagement through a fast and accessible reporting system.</p>" +
+
+                            "<p>Developed as part of a <em>DESN445 design project</em>, the system encourages riders to participate in " +
+                            "maintaining safer and cleaner transit environments while creating a stronger connection between transit " +
+                            "users and ETS operations.</p>" +
+                            "</section>",
+                        },
+                    },
+
+                    //
                     ProjectContent = new()
                     {
                         new Details("style", "body { font-family: Arial, sans-serif; line-height: 1.7; margin: 0; background: #f4f6f8; color: #222;      }  header { background: #2d3748; color: white; padding: 3rem 2rem; text-align: center; }  main { max-width: 1100px; margin: auto; padding: 2rem;      }  section { background: white; margin-bottom: 2rem; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);      }  h1, h2, h3, h4 { color: #1a202c;      }  h2 { border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;      }  ul { padding-left: 1.5rem;      }  .feature-card { background: #edf2f7; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;      }  .code-block { background: #1e1e1e; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto;      }  .timeline-item { border-left: 4px solid #4299e1; padding-left: 1rem; margin-bottom: 1rem;      }  footer { text-align: center; padding: 2rem; color: #666;      }"),
@@ -524,12 +588,13 @@ namespace RyleyGoodinePortfolio.Data
                         "game_design",
                     },
 
-                    ProjectContent = new()
+                    ProjectBlocks = new()
                     {
-                        new Details("style", "body { font-family: Arial, sans-serif; line-height: 1.7; margin: 0; background: #f4f6f8; color: #222;      }  header { background: #2d3748; color: white; padding: 3rem 2rem; text-align: center; }  main { max-width: 1100px; margin: auto; padding: 2rem;      }  section { background: white; margin-bottom: 2rem; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);      }  h1, h2, h3, h4 { color: #1a202c;      }  h2 { border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem;      }  ul { padding-left: 1.5rem;      }  .feature-card { background: #edf2f7; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;      }  .code-block { background: #1e1e1e; color: #f8f8f2; padding: 1rem; border-radius: 8px; overflow-x: auto;      }  .timeline-item { border-left: 4px solid #4299e1; padding-left: 1rem; margin-bottom: 1rem;      }  footer { text-align: center; padding: 2rem; color: #666;      }"),
-
                         // introduction
-                        new Details("div",
+                        new ProjectBlock()
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Introduction</h2>" +
 
@@ -540,11 +605,14 @@ namespace RyleyGoodinePortfolio.Data
                             "<p>The project also serves as a technical showcase for modular game development within Unity. Systems " +
                             "are designed with scalability in mind, allowing future gameplay mechanics, user interface improvements, " +
                             "and additional Pokémon content to be added without requiring complete rewrites of existing systems.</p>" +
-                            "</section>"
-                            ),
+                            "</section>",
+                        },
 
                         // game overview
-                        new Details("div",
+                        new ProjectBlock()
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Game Overview</h2> " +
 
@@ -562,14 +630,16 @@ namespace RyleyGoodinePortfolio.Data
                             "<p>While inspired heavily by Pokémon Emerald, the project also introduces modernized interface systems " +
                             "and expanded gameplay mechanics that were not fully present in the original Game Boy Advance release. " +
                             "The goal is to preserve the feel of the original game while improving usability and system flexibility.</p>" +
-                            "</section>"
-                            ),
+                            "</section>",
+                        },
 
                         // game mechanics
-                        new Details("div",
+                        new ProjectBlock()
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Game Mechanics</h2>" +
-
                             "<h3>Player Controls</h3>" +
                             "<ul>" +
                             "<li><strong>Arrow Keys:</strong> Move player and navigate menus</li>" +
@@ -578,7 +648,6 @@ namespace RyleyGoodinePortfolio.Data
                             "<li><strong>Enter:</strong> Open menu in overworld</li>" +
                             "<li><strong>Shift:</strong> Run feature</li>" +
                             "</ul>" +
-
                             "<h3>Overworld Systems</h3>" +
                             "<ul>" +
                             "<li>Animated player movement</li>" +
@@ -588,7 +657,6 @@ namespace RyleyGoodinePortfolio.Data
                             "<li>Trainer field-of-view battles</li>" +
                             "<li>HM abilities such as Surf and Cut</li>" +
                             "</ul>" +
-
                             "<h3>Battle System</h3>" +
                             "<ul>" +
                             "<li>Turn-based combat</li>" +
@@ -599,10 +667,13 @@ namespace RyleyGoodinePortfolio.Data
                             "<li>Trainer and wild battles</li>" +
                             "</ul>" +
                             "</section>"
-                            ),
+                        },
 
                         // game environment
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Game Environment</h2>" +
 
@@ -620,10 +691,13 @@ namespace RyleyGoodinePortfolio.Data
                             "<p>Tile textures define environmental layers such as grass, " +
                             "water, solid objects,foreground, and background rendering.</p>" +
                             "</section>"
-                            ),
+                        },
 
                         // technical design
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Technical Design</h2>" +
 
@@ -631,7 +705,7 @@ namespace RyleyGoodinePortfolio.Data
                             "<h3>Engine</h3>" +
                             "<p>Unity 2021.3.11f1 (2D Engine)</p>" +
                             "</div>" +
-                            
+
                             "<div class=\"feature-card\">" +
                             "<h3>Primary Language</h3>" +
                             "<p>C#</p>" +
@@ -641,7 +715,7 @@ namespace RyleyGoodinePortfolio.Data
                             "<h3>Architecture</h3>" +
                             "<p>State Stack Architecture with Scriptable Objects</p>" +
                             "</div>" +
-                            
+
                             "<p>The project uses a state-driven architecture to separate gameplay systems such as battles, menus, " +
                             "cutscenes, and overworld exploration into isolated game states. This approach improves organization and " +
                             "simplifies transitions between gameplay screens.</p>" +
@@ -649,10 +723,13 @@ namespace RyleyGoodinePortfolio.Data
                             "species, move definitions, status conditions, type information, and UI references. This allows designers " +
                             "to modify gameplay data without directly changing core gameplay scripts.</p>" +
                             "</section>"
-                            ),
+                        },
 
                         // quality of life
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Quality of Life Features</h2>" +
 
@@ -686,10 +763,13 @@ namespace RyleyGoodinePortfolio.Data
                             "speed and updatedanimation sets triggered by keyboard or controller input.</p>" +
                             "</article>" +
                             "</section>"
-                            ),
+                        },
 
                         // new features
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>New Gameplay Features</h2>" +
 
@@ -728,10 +808,13 @@ namespace RyleyGoodinePortfolio.Data
                             "</ul>" +
                             "</article>" +
                             "</section>"
-                            ),
+                        },
 
                         // advanced features
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Advanced Battle Features</h2>" +
 
@@ -769,10 +852,13 @@ namespace RyleyGoodinePortfolio.Data
                             "in official games. The combination of Natures, EVs, IVs, recoil systems, and critical-hit behavior " +
                             "creates greater variation between Pokémon and introduces more strategic depth during battles.</p>" +
                             "</section>"
-                            ),
+                        },
 
                         // bug fixes
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Bug Fixes & Challenges</h2>" +
 
@@ -794,10 +880,13 @@ namespace RyleyGoodinePortfolio.Data
                             "between Unity sessions.</p>" +
                             "</div>" +
                             "</section>"
-                            ),
+                        },
 
                         // timeline
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Implementation Timeline</h2>" +
 
@@ -821,10 +910,13 @@ namespace RyleyGoodinePortfolio.Data
                             "<p>Completed September 13, 2023.</p>" +
                             "</div>" +
                             "</section>"
-                            ),
+                        },
 
                         // future plans
-                        new Details("div",
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content =
                             "<section>" +
                             "<h2>Future Plans</h2>" +
 
@@ -845,7 +937,8 @@ namespace RyleyGoodinePortfolio.Data
                             "include recreating the complete Pokémon Emerald experience while supporting expanded post-game and " +
                             "multiplayer-inspired systems.</p>" +
                             "</section>"
-                            ),
+                        },
+
                     },
 
                     Media = new()
@@ -901,7 +994,7 @@ namespace RyleyGoodinePortfolio.Data
                     GitHubUrl = "",
                 },
 
-                // art Work (wip)
+                // Art Work
                 new Project()
                 {
                     Slug = "art-work",
@@ -920,262 +1013,275 @@ namespace RyleyGoodinePortfolio.Data
                         "Premiere Pro"
                     },
 
-                    ProjectContent = new()
+                    ProjectBlocks = new()
                     {
-                        new Details("h1", "art"),
+                        // beginning content
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Html,
+                            Content = "<section>" +
+                                      "<h2>Personal Art Portfolio</h2>" +
+                                      "<p>This collection showcases a variety of personal art projects, including digital illustrations, " +
+                                      "kinetic typography videos, and abstract designs. The works explore themes of pop culture, " +
+                                      "science fiction, and graphic design principles.</p>" +
+                                      "</section>"
+                        },
+
+                        // gallery of media items (image and video)
+                        new ProjectBlock
+                        {
+                            Type = BlockType.Gallery,
+                            MediaItems = new()
+                            {
+                                /* VIDEOS */
+                                // Weight of Love - Black Keys - Kinetic Typography
+                                new() {
+                                    Type=MediaType.Video,
+                                    Url="https://geo.dailymotion.com/player.html?video=xa6wl5g",
+                                    Caption="Weight of Love by the Black Keys - Kinetic Typography",
+                                    Technologies = new()
+                                    {
+                                        "After Effects",
+                                        "Premiere Pro",
+                                    },
+                                },
+
+                                // Pulp Fiction - Kinetic Typography
+                                new() {
+                                    Type=MediaType.Video,
+                                    Url="https://player.vimeo.com/video/1188533777?h=73c3758453",
+                                    Caption="Pulp Fiction - Kinetic Typography",
+                                    Technologies = new()
+                                    {
+                                        "After Effects",
+                                        "Premiere Pro",
+                                    },
+                                },
+
+                                // Life and Death of a Star
+                                new()
+                                {
+                                    Type=MediaType.Video,
+                                    Url="https://player.vimeo.com/video/1189181438?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+                                    Caption="Life and Death of a Star",
+                                    Technologies = new()
+                                    {
+                                        "After Effects",
+                                    },
+                                },
+
+                                /* IMAGES */
+                                new()
+                                {
+                                    // blue superman stencil
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/0ba5de1ba153.png",
+                                    Caption="Blue Superman Stencil",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // andy warhol superman stencil
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/650518e5a396.png",
+                                    Caption="Andy Warhol Superman Stencil",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // arkham batman stencil
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/73c42cf36999.png",
+                                    Caption="Arkham Batman Stencil",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // arkham batman symbol stencil
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/25f336dac9ec.png",
+                                    Caption="Arkham Batman Symbol Stencil",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                        "Photoshop",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // arkham joker high-detail abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/8537dca1dff6.png",
+                                    Caption="Arkham Joker High-Detail Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // green lantern 1
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/3e78fb9255cf.png",
+                                    Caption="Green Lantern 1",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // clone trooper abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/b72492fda2f3.png",
+                                    Caption="Clone Trooper Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // hexagon pattern abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/bfd61a46ab39.png",
+                                    Caption="Hexagon Pattern Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // optical illusion abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/74b907fbb261.png",
+                                    Caption="Optical Illusion Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // green lantern 2
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/ed87d011259c.png",
+                                    Caption="Green Lantern 2",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                        "Photoshop",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // colour wheel abtract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/ad0f66557f24.png",
+                                    Caption="Colour Wheel Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // destiny exo head abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/a5c66a3d8bfe.png",
+                                    Caption="Destiny Exo Head Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // destiny vandal head abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/5fb7317d2e09.png",
+                                    Caption="Destiny Vandal Head Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // destiny vandal head close-up abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/01c897067abb.png",
+                                    Caption="Destiny Vandal Head Close-Up Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // destiny vandal head abstract andy warhol rainbow
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/2a22736e26ba.png",
+                                    Caption="Destiny Vandal Head Abstract Andy Warhol Rainbow",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                        "Photoshop",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // flash lightning bold abstract
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/caa7e03c1c7c.png",
+                                    Caption="Flash Lightning Bold Abstract",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                        "Photoshop",
+                                    },
+                                },
+
+                                new()
+                                {
+                                    // superman stencil negative
+                                    Type=MediaType.Image,
+                                    Url="https://cdn.imgchest.com/files/f569b1bafcff.png",
+                                    Caption="Superman Stencil Negative",
+                                    Technologies = new()
+                                    {
+                                        "Illustrator",
+                                    },
+                                },
+                            }
+                        },
                     },
-
-                    Media = new()
-                    {
-                        /* VIDEOS */
-                        // Weight of Love - Black Keys - Kinetic Typography
-                        new() {
-                            Type=MediaType.Video,
-                            Url="https://geo.dailymotion.com/player.html?video=xa6wl5g",
-                            Caption="Weight of Love by the Black Keys - Kinetic Typography",
-                            Technologies = new()
-                            {
-                                "After Effects",
-                                "Premiere Pro",
-                            },
-                        },
-
-                        // Pulp Fiction - Kinetic Typography
-                        new() {
-                            Type=MediaType.Video,
-                            Url="https://player.vimeo.com/video/1188533777?h=73c3758453",
-                            Caption="Pulp Fiction - Kinetic Typography",
-                            Technologies = new()
-                            {
-                                "After Effects",
-                                "Premiere Pro",
-                            },
-                        },
-
-                        // Life and Death of a Star
-                        new()
-                        {
-                            Type=MediaType.Video,
-                            Url="https://player.vimeo.com/video/1189181438?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                            Caption="Life and Death of a Star",
-                            Technologies = new()
-                            {
-                                "After Effects",
-                            },
-                        },
-
-                        /* IMAGES */
-                        new()
-                        {
-                            // blue superman stencil
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/0ba5de1ba153.png",
-                            Caption="Blue Superman Stencil",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-
-                        new()
-                        {
-                            // andy warhol superman stencil
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/650518e5a396.png",
-                            Caption="Andy Warhol Superman Stencil",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-
-                        new()
-                        {
-                            // arkham batman stencil
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/73c42cf36999.png",
-                            Caption="Arkham Batman Stencil",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // arkham batman symbol stencil
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/25f336dac9ec.png",
-                            Caption="Arkham Batman Symbol Stencil",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                                "Photoshop",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // arkham joker high-detail abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/8537dca1dff6.png",
-                            Caption="Arkham Joker High-Detail Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // green lantern 1
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/3e78fb9255cf.png",
-                            Caption="Green Lantern 1",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // clone trooper abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/b72492fda2f3.png",
-                            Caption="Clone Trooper Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // hexagon pattern abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/bfd61a46ab39.png",
-                            Caption="Hexagon Pattern Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // optical illusion abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/74b907fbb261.png",
-                            Caption="Optical Illusion Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // green lantern 2
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/ed87d011259c.png",
-                            Caption="Green Lantern 2",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                                "Photoshop",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // colour wheel abtract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/ad0f66557f24.png",
-                            Caption="Colour Wheel Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // destiny exo head abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/a5c66a3d8bfe.png",
-                            Caption="Destiny Exo Head Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // destiny vandal head abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/5fb7317d2e09.png",
-                            Caption="Destiny Vandal Head Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // destiny vandal head close-up abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/01c897067abb.png",
-                            Caption="Destiny Vandal Head Close-Up Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // destiny vandal head abstract andy warhol rainbow
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/2a22736e26ba.png",
-                            Caption="Destiny Vandal Head Abstract Andy Warhol Rainbow",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                                "Photoshop",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // flash lightning bold abstract
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/caa7e03c1c7c.png",
-                            Caption="Flash Lightning Bold Abstract",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                                "Photoshop",
-                            },
-                        },
-                    
-                        new()
-                        {
-                            // superman stencil negative
-                            Type=MediaType.Image,
-                            Url="https://cdn.imgchest.com/files/f569b1bafcff.png",
-                            Caption="Superman Stencil Negative",
-                            Technologies = new()
-                            {
-                                "Illustrator",
-                            },
-                        },
-                    }
                 },
-
-
             };
     }
 }

@@ -6,6 +6,29 @@
 
 @page "/projects/{Slug}"
 
+<div class="container py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <NavLink href="/">
+                    Home
+                </NavLink>
+            </li>
+
+            <li class="breadcrumb-item">
+                <NavLink href="/projects">
+                    Projects
+                </NavLink>
+            </li>
+
+            <li class="breadcrumb-item active"
+                aria-current="page">
+                @(Project is null ? "Nothing" : Project.Title)
+            </li>
+        </ol>
+    </nav>
+</div>
+
 <PageTitle>@Project?.Title</PageTitle>
 
 <!-- breadcrumb navigation -->
@@ -60,11 +83,38 @@ else
 
         <!-- The meat of the project -->
         <div class="col-xl content-group">
-            @if (Project.ProjectContent != null && Project.ProjectContent.Any())
+            @if (Project.ProjectBlocks != null && Project.ProjectBlocks.Any())
             {
-                @foreach (var i in Project.ProjectContent)
+                @foreach (var block in Project.ProjectBlocks)
                 {
-                    @RenderElement(i)
+                    switch (block.Type)
+                    {
+                        case BlockType.Html:
+                            @((MarkupString)block.Content)
+                            break;
+
+                        case BlockType.Image:
+                            <figure class="case-study-media">
+                                <img src="@block.Url" alt="@block.Caption" />
+                                @if (!string.IsNullOrWhiteSpace(block.Caption))
+                                {
+                                    <figcaption>@block.Caption</figcaption>
+                                }
+                            </figure>
+                            break;
+
+                        case BlockType.Video:
+                            <div class="case-study-media">
+                                <VideoThumbnailModal
+                                    VideoUrl="@block.Url"
+                                    Title="@block.Caption" />
+                            </div>
+                            break;
+                            
+                        case BlockType.Gallery:
+                            <MediaGalleryInline MediaItems="block.MediaItems" />
+                            break;
+                    }
                 }
             }
         </div>
