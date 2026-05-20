@@ -1,3 +1,28 @@
+:root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --text: #1f2937;
+    --text-heading: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #4f46e5;
+    --accent-hover: #4338ca;
+    --bg-dark: #0b1220;
+    --surface-dark: #111827;
+    --surface-2-dark: #1f2937;
+    --text-dark: #e5e7eb;
+    --text-heading-dark: #f9fafb;
+    --muted-dark: #9ca3af;
+    --border-dark: #2d3748;
+    --accent-dark: #6366f1;
+    --accent-hover-dark: #818cf8;
+    --shadow-dark: rgba(0, 0, 0, 0.35);
+    --shadow-strong-dark: rgba(0, 0, 0, 0.55);
+}
+
+
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
