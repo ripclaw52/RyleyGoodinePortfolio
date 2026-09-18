@@ -2,7 +2,7 @@
 
 @if (MediaItems?.Any() == true)
 {
-    <div class="inline-media-grid">
+    <div class="inline-media-grid @(GetGridClass())">
 
         @foreach (var (media, index) in MediaItems.Select((m, i) => (m, i)))
         {
@@ -11,8 +11,10 @@
 
                 @if (media.Type == MediaType.Image)
                 {
-                    <img src="@media.Url"
-                         alt="@media.Caption" />
+                    <div class="media-preview">
+                        <img src="@media.Url"
+                             alt="@media.Caption" />
+                    </div>
                 }
                 else if (media.Type == MediaType.Video)
                 {
@@ -30,6 +32,9 @@
 
                     </div>
                 }
+                <div class="media-caption">
+                    @media.Caption
+                </div>
 
             </div>
         }
@@ -41,10 +46,28 @@
 }
 
 <style>
+    .media-preview {
+        aspect-ratio: 16 / 10;
+        /*overflow: hidden;
+        position: relative;*/
+    }
+
+    .media-caption {
+        padding: .75rem 1rem;
+        font-size: .9rem;
+        line-height: 1.4;
+        color: var(--text);
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+    }
+
     .inline-media-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
         margin: 2rem 0;
     }
 
@@ -53,7 +76,10 @@
         overflow: hidden;
         border-radius: 12px;
         background: #f3f4f6;
+        display: flex;
+        flex-direction: column;
         transition: transform 0.2s ease;
+        grid-column: span 4;
     }
 
         .inline-media-item:hover {
@@ -62,9 +88,18 @@
 
         .inline-media-item img {
             width: 100%;
-            display: block;
+            height: 100%;
             object-fit: cover;
+            display: block;
         }
+
+    .inline-media-grid.two-items .inline-media-item {
+        grid-column: span 6;
+    }
+
+    .inline-media-grid.one-item .inline-media-item {
+        grid-column: span 12;
+    }
 
     /* Video thumbnail wrapper */
     .thumbnail-wrapper {
@@ -111,5 +146,15 @@
         {
             await Gallery.Open(index);
         }
+    }
+
+    private string GetGridClass()
+    {
+        return MediaItems.Count switch
+        {
+            1 => "one-item",
+            2 => "two-items",
+            _ => ""
+        };
     }
 }

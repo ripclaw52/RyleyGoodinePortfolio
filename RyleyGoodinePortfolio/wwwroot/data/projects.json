@@ -1,0 +1,86 @@
+/*
+  id: slug for the project, used in the url
+  title: project name
+  description: project description
+  tags: list of tags for the project
+  imageUrl: thumnail image
+  gitHubUrl: link to github repo
+
+  contentPath: path to the content file for the project, used to load the content dynamically
+  mediaGallery: not sure if this is needed, but it could be used to store images for the project, optional
+*/
+
+[
+  // property assessment city of edmonton
+  {
+    "id": "property-assessment-tool",
+    "title": "Property Assessment Tool for the City of Edmonton",
+    "description": "The Property Assessment Tool is an interactive dashboard that uses maps, charts, and civic data to help users evaluate and compare Edmonton neighbourhoods for relocation and urban analysis.",
+    "tags": [
+      "python",
+      "html",
+      "css",
+      "pycharm",
+      "acrobat",
+      "excel",
+      "word"
+    ],
+    "imageUrl": "",
+    "gitHubUrl": "https://github.com/ripclaw52/pythonPandasAndNumpyTestProject.git",
+
+    "contentPath": "data/content/property-assessment-tool.md",
+    "mediaGallery": []
+  },
+
+  // ets bus safety user redesign
+  {
+    "id": "ets-bus-safety-redesign",
+    "title": "ETS Bus Safety User Experience Redesign",
+    "description": "ReportIt is a conceptual ETS reporting platform that enables riders to quickly report non-emergency transit issues through an accessible web-based interface.",
+    "tags": [
+      "figma",
+      "adobe_xd",
+      "photoshop",
+      "illustrator",
+      "acrobat",
+      "word"
+    ],
+    "imageUrl": "",
+    "gitHubUrl": null,
+
+    "contentPath": "data/content/ets-bus-safety-redesign.md",
+    "mediaGallery": []
+  },
+
+  // pokemon capstone
+  {
+    "id": "pokemon-capstone",
+    "title": "Pokémon Capstone Project",
+    "description": "Turn-based systems project emphasizing persistence and UX.",
+    "tags": [
+      "c#",
+      "unity",
+      "visual_studio",
+      "gimp",
+      "game_design"
+    ],
+    "imageUrl": "",
+    "gitHubUrl": "",
+
+    "contentPath": "data/content/pokemon-capstone.md",
+    "mediaGallery": []
+  },
+
+  // artwork
+  {
+    "id": "",
+    "title": "",
+    "description": "",
+    "tags": [],
+    "imageUrl": "",
+    "gitHubUrl": null,
+
+    "contentPath": "",
+    "mediaGallery": []
+  }
+]

@@ -24,14 +24,23 @@ namespace RyleyGoodinePortfolio.Models
 
     public class Project
     {
-        public string Slug { get; set; } = string.Empty;
+        // Card Overview Data
+        public string Id { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
-        public string ThumbnailUrl { get; set; } = string.Empty;
-        public string Summary { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public string[] Tags { get; set; } = Array.Empty<string>();
+        public string ImageUrl { get; set; } = string.Empty;
+        public string GitHubUrl { get; set; } = string.Empty;
+        
+        // Detailed Content
+        public string ContentPath { get; set; } = string.Empty; // e.g., "data/content/my-project.md"
+        public string[] MediaGallery { get; set; } = Array.Empty<string>();
+
+
+        public string Summary { get; set; } = string.Empty;
         
         // if available
-        public string? GitHubUrl { get; set; }
+        
 
         // Always initialize collections to avoid null dereference (CS8602)
         public List<string>? Technologies { get; set; } = [];
